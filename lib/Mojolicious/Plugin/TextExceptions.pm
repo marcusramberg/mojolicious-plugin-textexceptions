@@ -5,7 +5,7 @@ our $VERSION = '0.1';
 
 sub register {
   my ($self, $app, $config) = @_;
-  my $ua_re = $config->{ua_re} || qr{^(Mojolicious|curl|Wget)};
+  my $ua_re = $config->{ua_re} || qr{^(?:Mojolicious|curl|Wget)};
 
   $app->hook(
     before_render => sub {
@@ -44,6 +44,8 @@ Mojolicious::Plugin::TextExceptions - Render exceptions as text in command line 
   # Always enabling the plugin can leak sensitive information
   # to the end user
   plugin 'TextExceptions';
+
+  plugin 'TextExceptions', ua_re => qr{^LWP}; # Override the default regex for user agent
 
 =head1 DESCRIPTION
 
