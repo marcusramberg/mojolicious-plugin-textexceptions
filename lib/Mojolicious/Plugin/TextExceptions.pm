@@ -1,5 +1,4 @@
 package Mojolicious::Plugin::TextExceptions;
-
 use Mojo::Base 'Mojolicious::Plugin';
 
 our $VERSION = '0.1';
@@ -18,6 +17,10 @@ sub register {
       }
   });
 }
+
+1;
+
+=encoding utf8
 
 =head1 NAME
 
@@ -59,3 +62,4 @@ Marcus Ramberg <mramberg@cpan.org>
 =head1 cut
 
 1;
+=cut
