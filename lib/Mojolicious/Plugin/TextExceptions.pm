@@ -10,7 +10,9 @@ sub register {
   $app->hook(
     before_render => sub {
       my ($c, $args) = @_;
+      my $format = $c->stash('format') // 'html';
 
+      return unless $format eq 'html';                  # Do not want to take over API responses
       return unless my $template = $args->{template};
       return unless $template eq 'exception';
 
