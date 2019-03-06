@@ -28,19 +28,27 @@ Mojolicious::Plugin::TextExceptions - Render exceptions as text in command line 
 
 =head1 SYNOPSIS
 
+  use Mojolicious::Lite;
+
+  # Only enable this plugin when running tests
+  plugin 'TextExceptions' if $ENV{HARNESS_ACTIVE};
+
+  # Only enable this plugin when developing
+  plugin 'TextExceptions' if app->mode eq 'development';
+
+  # Always enabling the plugin can leak sensitive information
+  # to the end user
   plugin 'TextExceptions';
 
 =head1 DESCRIPTION
 
 This plugin looks for curl/wget/mojo user agent and renders exceptions as text instead of html.
 
-
 =head1 METHODS
 
 =head2 register
 
 Sets up a before_render hook to look for text based user agents and render exceptions as text.
-
 
 Currently supports Mojo::UserAgent, curl and wget
 
@@ -59,7 +67,4 @@ the terms of the Artistic License version 2.0.
 
 Marcus Ramberg <mramberg@cpan.org>
 
-=head1 cut
-
-1;
 =cut
