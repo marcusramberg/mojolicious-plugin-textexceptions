@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
       homepage   => 'https://github.com/marcusramberg/mojolicious-plugin-textexceptions',
       repository => {
         type => 'git',
-        url  => 'https://github.com/marcusramberg/mojolicious-plugin-textexceptions',
+        url  => 'https://github.com/marcusramberg/mojolicious-plugin-textexceptions.git',
         web  => 'https://github.com/marcusramberg/mojolicious-plugin-textexceptions',
       },
     },
