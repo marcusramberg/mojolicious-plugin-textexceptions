@@ -5,6 +5,7 @@ our $VERSION = '0.1';
 
 sub register {
   my ($self, $app, $config) = @_;
+  my $ua_re = exists $config->{ua_re} ? $config->{ua_re} : qr{^(Mojolicious|curl|Wget)};
 
   $app->hook(
     before_render => sub {
@@ -13,7 +14,7 @@ sub register {
       return unless my $template = $args->{template};
       return unless $template eq 'exception';
 
-      if ($c->req->headers->user_agent =~ /Mojolicious|curl|Wget/) {
+      if ($ua_re and $c->req->headers->user_agent =~ $ua_re) {
         @$args{qw(text format)} = ($c->stash->{exception}, 'txt');
       }
     }
