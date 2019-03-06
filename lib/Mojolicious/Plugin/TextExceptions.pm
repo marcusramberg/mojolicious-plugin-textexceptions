@@ -6,16 +6,18 @@ our $VERSION = '0.1';
 sub register {
   my ($self, $app, $config) = @_;
 
-  $app->hook( before_render => sub {
+  $app->hook(
+    before_render => sub {
       my ($c, $args) = @_;
 
       return unless my $template = $args->{template};
       return unless $template eq 'exception';
 
-      if($c->req->headers->user_agent =~ /Mojolicious|curl|Wget/) {
+      if ($c->req->headers->user_agent =~ /Mojolicious|curl|Wget/) {
         @$args{qw(text format)} = ($c->stash->{exception}, 'txt');
       }
-  });
+    }
+  );
 }
 
 1;
