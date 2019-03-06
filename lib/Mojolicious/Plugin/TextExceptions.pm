@@ -74,4 +74,6 @@ the terms of the Artistic License version 2.0.
 
 Marcus Ramberg <mramberg@cpan.org>
 
+Jan Henning Thorsen <jhthorsen@cpan.org>
+
 =cut
