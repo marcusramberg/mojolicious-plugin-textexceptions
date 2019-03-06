@@ -1,7 +1,7 @@
 package Mojolicious::Plugin::TextExceptions;
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.1';
+our $VERSION = '0.01';
 
 sub register {
   my ($self, $app, $config) = @_;
@@ -73,6 +73,8 @@ the terms of the Artistic License version 2.0.
 =head1 AUTHOR
 
 Marcus Ramberg <mramberg@cpan.org>
+
+=head1 CONTRIBUTORS
 
 Jan Henning Thorsen <jhthorsen@cpan.org>
 
